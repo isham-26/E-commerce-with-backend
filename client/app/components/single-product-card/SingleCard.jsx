@@ -9,28 +9,28 @@ const SingleCard = ({ product }) => {
       <div className="flex p-2">
         <div className="flex flex-col md:gap-3 gap-2 md:mr-3 mr-2">
           {/* apply map here for image */}
-          <Image
+          <img
             src={product.image}
             alt="Product Image"
             className="object-cover  md:w-[10rem] w-[5rem]"
           />
-          <Image
+          <img
             src={product.image}
             alt="Product Image"
             className="object-cover md:w-[10rem] w-[5rem]"
           />
-          <Image
+          <img
             src={product.image}
             alt="Product Image"
             className="object-cover  md:w-[10rem]  w-[5rem]"
           />
-          <Image
+          <img
             src={product.image}
             alt="Product Image"
             className="object-cover  md:w-[10rem] w-[5rem]"
           />
         </div>
-        <Image
+        <img
           src={product.image}
           alt="Product Image"
           className="object-cover md:w-[42rem] w-[16rem]"

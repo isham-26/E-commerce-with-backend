@@ -1,23 +1,36 @@
 "use client";
-import React, { createContext, useReducer, useState } from "react";
-import all_product from "../components/Assets/all_product";
+import React, { createContext, useEffect, useReducer, useState } from "react";
+import axios from "axios";
+import { url } from "@/utility";
 // import reducer from "./reducer";
-const getDefaltCart = ()=>{
-   const cartArr=[];
-   for (let index = 0; index < all_product.length; index++) {
-       cartArr[index]=false;
-    
-   }
-   return cartArr;
-}
+
 // const initialState ={
     
 // }
 const ShopContext = createContext();
 const ShopContextProvider = ({ children }) => {
   // const [state,dispach] = useReducer(reducer,initialState);
+  const [all_product,setallproduct]=useState([]);
+   useEffect(()=>{
+      const getAlldata=async()=>{
+         const res=await axios.get(`${url}/api/products`);
+         setallproduct(res.data);
+      }
+      getAlldata();
+   },[])
+   console.log(all_product)
+   const getDefaltCart = ()=>{
+    const cartArr=[];
+    for (let index = 0; index < all_product.length; index++) {
+        cartArr[index]=false;
+     
+    }
+    return cartArr;
+ }
+
   const [itemCarts,setItemCarts]=useState(getDefaltCart());
   const [new_arr, setNewarr] = useState(all_product);
+  console.log("false array with true",itemCarts);
   const increse = (id) => {
     const newCartItems = new_arr.map((item) => {
       if ((item.id)===(id)) {
@@ -47,6 +60,7 @@ const ShopContextProvider = ({ children }) => {
     setItemCarts((prev)=>({...prev,[productId]:false}))
      
   }
+  
   const getTotalCartAmount =()=>{
       let totalAmount=0;
       for(const item in itemCarts){ //item gives index because in is here(const item in itemCarts)

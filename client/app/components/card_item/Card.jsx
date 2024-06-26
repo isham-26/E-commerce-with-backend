@@ -9,11 +9,13 @@ const Card = (props) => {
   return (
     
       <div className="flex flex-col md:gap-2 md:w-[294px] w-[169px] md:shadow-md md:hover:scale-105 ease-in duration-300 md:hover:shadow-2xl md:hover:shadow-gray-500 md:mb-0 md:h-[500px] h-[281px]">
-        <Link href={`/product/${props.item.id}`}>
-        <Image
+        <Link href={`/product/${props.item._id}`}>
+        <img
           src={props.item.image}
           alt="item"
           className=" object-cover w-full "
+          width={500}
+          height={500}
         />
         </Link>
         <div className="flex flex-col md:gap-6 gap-3 md:p-4 p-2 border md:border-0 shadow-md md:shadow-none">

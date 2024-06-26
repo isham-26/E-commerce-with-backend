@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="md:text-6xl text-[15px] capitalize flex items-center gap-2">
             <SiShopify className="md:text-6xl text-3xl text-yellow-400" />
             <div className="md:text-4xl text-xl flex flex-col text-blue-600">
-              FlodCart
+              FoldCart
             </div>
           </div>
           <div className="">
