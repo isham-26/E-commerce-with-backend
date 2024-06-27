@@ -10,7 +10,7 @@ const Card = (props) => {
     
       <div className="flex flex-col md:gap-2 md:w-[294px] w-[169px] md:shadow-md md:hover:scale-105 ease-in duration-300 md:hover:shadow-2xl md:hover:shadow-gray-500 md:mb-0 md:h-[500px] h-[281px]">
         <Link href={`/product/${props.item._id}`}>
-        <img
+        <Image
           src={props.item.image}
           alt="item"
           className=" object-cover w-full "
@@ -19,7 +19,7 @@ const Card = (props) => {
         />
         </Link>
         <div className="flex flex-col md:gap-6 gap-3 md:p-4 p-2 border md:border-0 shadow-md md:shadow-none">
-        <Link href={`/product/${props.item.id}`}>
+        <Link href={`/product/${props.item._id}`}>
           <div className="md:text-[17px] text-[10px] text-gray-800 line-clamp-2">
             {props.item.name}
           </div>
@@ -33,7 +33,7 @@ const Card = (props) => {
                 Rs. {props.item.old_price}
               </div>
             </div>
-            <button className="md:p-2 p-1 bg-blue-500 text-white md:text-[10px] text-[7px] hover:bg-blue-600 ease-in-out duration-300 font-semibold" onClick={()=>addToCart(props.item.id)}>
+            <button className="md:p-2 p-1 bg-blue-500 text-white md:text-[10px] text-[7px] hover:bg-blue-600 ease-in-out duration-300 font-semibold" onClick={()=>addToCart(props.item._id)}>
               Add To cart
             </button>
           </div>

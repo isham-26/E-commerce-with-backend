@@ -3,14 +3,13 @@ import bcrypt from "bcrypt"
 
 const register= async(req,res)=>{
     try{
+       
         const salt= await bcrypt.genSalt(10);
         const hashpass= await bcrypt.hash(req.body.password,salt);
         const user = new User({...req.body,password:hashpass});
-
         const newUser = await user.save();
-
-        const {username,email, ...other}=newUser;
-        res.status(200).json({username,email});
+        const {password, ...other}=newUser._doc;
+        res.status(200).json({...other});
     }catch(err){
         res.status(500).json("user not resister correctly");
     }

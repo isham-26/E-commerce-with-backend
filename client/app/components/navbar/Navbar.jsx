@@ -8,9 +8,18 @@ import { RxCross2 } from "react-icons/rx";
 import { IoIosSearch } from "react-icons/io";
 import Link from "next/link";
 import { ShopContext } from "@/app/context/ShopContext";
+import { useRouter } from "next/navigation";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const {lencart}=useContext(ShopContext);
+  const router=useRouter();
+  // const logout=()=>{
+  //    if(User!==null){
+  //       setuser(null);
+  //       router.push("/login")
+  //    }
+  // }
   return (
     <div className="flex md:flex-row flex-col justify-center border bg-slate-100">
       <div className="md:w-[80%] w-full flex justify-between items-center p-4">
@@ -65,7 +74,7 @@ const Navbar = () => {
           </div>
           <Link href="/login">
             <button className="border p-2 md:w-[6rem] rounded-full text-sm md:text-xl hover:bg-blue-400 hover:text-white ease-in-out duration-300 hidden md:block">
-              Logout
+             logout
             </button>
           </Link>
           <button

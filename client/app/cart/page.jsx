@@ -32,15 +32,15 @@ const CartPage = () => {
             </h3>
           </div>
           {new_arr.map((item) => {
-            if (itemCarts[item.id]===true) {
+            if (itemCarts[item._id]===true) {
               return (
                 <div
-                  key={item.id}
+                  key={item._id}
                   className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5"
                 >
                   <div className="flex flex-col w-full lg:w-2/5 gap-2">
                   
-                    <Link className="md:w-20 w-14" href={`/product/${item.id}`}>
+                    <Link className="md:w-20 w-14" href={`/product/${item._id}`}>
                       <Image
                         className="md:h-24 h-14 object-cover"
                         src={item.image}
@@ -48,8 +48,8 @@ const CartPage = () => {
                       />
                     </Link>
                     <div className="flex flex-col justify-between gap-1 flex-grow md:text-[18px] text-[8px]">
-                      <Link className="font-bold line-clamp-2" href={`/product/${item.id}`}>{item.name}</Link>
-                      <span href="/" className="font-semibol text-indigo-600 flex gap-2 items-center cursor-pointer hover:text-red-500 md:w-[6rem]" onClick={()=>removeToCart(item.id)}>
+                      <Link className="font-bold line-clamp-2" href={`/product/${item._id}`}>{item.name}</Link>
+                      <span href="/" className="font-semibol text-indigo-600 flex gap-2 items-center cursor-pointer hover:text-red-500 md:w-[6rem]" onClick={()=>removeToCart(item._id)}>
                       <MdOutlineRemoveShoppingCart />
                         Remove
                       </span>
@@ -58,7 +58,7 @@ const CartPage = () => {
                   <div className="flex justify-center w-full lg:w-1/5 text-[12px] md:text-[20px]">
                     <button
                       className="fill-current text-gray-600 w-3 h-3 mx-2"
-                      onClick={() => decrease(item.id)}
+                      onClick={() => decrease(item._id)}
                     >
                       -
                     </button>
@@ -67,7 +67,7 @@ const CartPage = () => {
                     </span>
                     <button
                       className="fill-current text-gray-600 w-3 h-3 mx-2"
-                      onClick={() => increse(item.id)}
+                      onClick={() => increse(item._id)}
                     >
                       +
                     </button>

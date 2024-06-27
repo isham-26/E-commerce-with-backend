@@ -30,7 +30,12 @@ const ShopContextProvider = ({ children }) => {
 
   const [itemCarts,setItemCarts]=useState(getDefaltCart());
   const [new_arr, setNewarr] = useState(all_product);
-  console.log("false array with true",itemCarts);
+  const [User, setUser] = useState(null);
+  // console.log("false array with true",itemCarts);
+  const setuser=(user)=>{
+     setUser(user)
+  }
+  console.log(User)
   const increse = (id) => {
     const newCartItems = new_arr.map((item) => {
       if ((item.id)===(id)) {
@@ -96,7 +101,7 @@ const ShopContextProvider = ({ children }) => {
       }
       return totalitems;
   }
-  const contextValue = {all_product,addToCart,itemCarts,removeToCart,getTotalCartAmount,lencart,increse,decrease,new_arr,totalCartItems};
+  const contextValue = {all_product,addToCart,itemCarts,removeToCart,getTotalCartAmount,lencart,increse,decrease,new_arr,totalCartItems,setuser,User};
   return (
     <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>
   );

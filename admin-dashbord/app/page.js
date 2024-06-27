@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { url } from "@/utility";
 export default function Home() {
-  const [title,setTitle]=useState();
+  const [name,setName]=useState();
   const [desc,setDesc]=useState();
   const [new_price,setNew_price]=useState();
   const [old_price,setOld_price]=useState();
@@ -33,7 +33,7 @@ export default function Home() {
   const handleSubmit=async (e)=>{
     e.preventDefault();
      const newProduct={
-       title:title,
+       name:name,
        desc:desc,
        new_price:new_price,
        old_price:old_price,
@@ -60,7 +60,7 @@ export default function Home() {
               name="name"
               id="name"
               required
-              onChange={(e)=>setTitle(e.target.value)}
+              onChange={(e)=>setName(e.target.value)}
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
